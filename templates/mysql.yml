@@ -1,8 +1,15 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  username: <%= ENV['WERCKER_MYSQL_USERNAME'] %>
+  password: <%= ENV['WERCKER_MYSQL_PASSWORD'] %>
+  host: <%= ENV['WERCKER_MYSQL_HOST'] %>
+  port: <%= ENV['WERCKER_MYSQL_PORT'] %>
+
 test:
-    adapter: mysql2
-    encoding: utf8
-    database: <%= ENV['WERCKER_MYSQL_DATABASE'] %><%= ENV['TEST_ENV_NUMBER'] %>
-    username: <%= ENV['WERCKER_MYSQL_USERNAME'] %>
-    password: <%= ENV['WERCKER_MYSQL_PASSWORD'] %>
-    host: <%= ENV['WERCKER_MYSQL_HOST'] %>
-    port: <%= ENV['WERCKER_MYSQL_PORT'] %>
+  database: <%= ENV['WERCKER_MYSQL_DATABASE'] %><%= ENV['TEST_ENV_NUMBER'] %>
+  <<: *defaults
+
+secondary_test:
+  database: secondary_test
+  <<: *defaults

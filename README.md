@@ -6,7 +6,7 @@ For this step you need to have a mysql or postgres. See the [services](http://de
 
 # What's new
 
-- Add `postgresql-min-message` parameter
+- Support the secondary test database for MySQL adapter
 
 # Options
 
@@ -41,6 +41,10 @@ test:
 ```
 
 # Changelog
+
+## 1.1.0
+
+- Support the secondary test database for MySQL adapter
 
 ## 1.0.0
 
